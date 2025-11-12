@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TourEase | Travel & Transport</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #0078d7;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background-color: #ffcc00;
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffc107;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 50px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      color: #0078d7;
+    }
+
+    /* Cards */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      max-width: 320px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #0078d7;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #f0f8ff;
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0078d7;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <h1>TourEase</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Discover the World with Comfort</h2>
+      <p>Experience hassle-free travel and smooth transportation — your journey begins here.</p>
+      <a href="#services" class="btn">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p style="max-width:800px; margin:auto; text-align:center; color:#555;">
+      TourEase is a modern travel and transportation company offering world-class tour packages,
+      adventure trips, and reliable transport solutions. We ensure a safe, comfortable, and memorable journey for all our travelers.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg" alt="Tour Packages">
+        <div class="card-content">
+          <h3>Holiday Packages</h3>
+          <p>Explore exotic destinations with our affordable and exciting travel packages tailored for you.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg" alt="Transport">
+        <div class="card-content">
+          <h3>Transportation</h3>
+          <p>Comfortable vehicles for city tours, airport pickups, and intercity travel with professional drivers.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.pexels.com/photos/287240/pexels-photo-287240.jpeg" alt="Adventure Trips">
+        <div class="card-content">
+          <h3>Adventure Trips</h3>
+          <p>Thrilling adventures, trekking, and camping experiences for nature lovers and explorers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p>Email: info@tourease.com</p>
+    <p>Phone: +91 88518 58353</p>
+    <p>Location: New Delhi, India</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 TourEase. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

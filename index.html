@@ -4,267 +4,396 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TourEase | Travel & Transport</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
 
-    body {
-      background-color: #f8f9fa;
-      color: #333;
-    }
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
 
-    /* Navbar */
-    header {
-      background-color: #0078d7;
-      color: white;
-      padding: 15px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+<style>
 
-    header h1 {
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
+body {
+  background-color: #f8f9fa;
+  color: #333;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
+/* Navbar */
+header {
+  background-color: #0078d7;
+  color: white;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    nav ul li a:hover {
-      color: #ffcc00;
-    }
+header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
 
-    /* Hero Section */
-    .hero {
-      background: url('https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
-    }
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
+nav ul li a:hover {
+  color: #ffcc00;
+}
 
-    .hero-content h2 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+/* Search Box */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
 
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-    }
+.searchBox:hover {
+  background: rgba(255,255,255,0.25);
+}
 
-    .btn {
-      padding: 12px 25px;
-      background-color: #ffcc00;
-      color: #333;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 30px;
-      transition: background 0.3s ease;
-    }
+.searchBox input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #fff;
+  width: 130px;
+  font-size: 0.9rem;
+}
 
-    .btn:hover {
-      background-color: #ffc107;
-    }
+.searchLogo i {
+  color: #fff;
+  font-size: 1rem;
+}
 
-    /* Section Styles */
-    section {
-      padding: 80px 50px;
-    }
+/* Hero Section */
+.hero {
+  background: url('https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-      font-size: 2rem;
-      color: #0078d7;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
 
-    /* Cards */
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
 
-    .card {
-      background-color: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      max-width: 320px;
-    }
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.btn {
+  padding: 12px 25px;
+  background-color: #ffcc00;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
 
-    .card-content {
-      padding: 20px;
-    }
+.btn:hover {
+  background-color: #ffc107;
+}
 
-    .card-content h3 {
-      color: #0078d7;
-      margin-bottom: 10px;
-    }
+/* Section Styling */
+section {
+  padding: 80px 50px;
+}
 
-    .card-content p {
-      font-size: 0.95rem;
-      color: #555;
-    }
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  color: #0078d7;
+}
 
-    /* Contact Section */
-    .contact {
-      background-color: #f0f8ff;
-      padding: 80px 50px;
-      text-align: center;
-    }
+/* About Section */
+.about-wrapper {
+  max-width: 850px;
+  margin: auto;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 1.6;
+}
 
-    .contact p {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
+/* Cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
 
-    /* Footer */
-    footer {
-      background-color: #0078d7;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  max-width: 320px;
+}
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero-content h2 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  color: #0078d7;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Contact Section */
+.contact {
+  background-color: #f0f8ff;
+  text-align: center;
+}
+
+.contact p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Feedback Section */
+.feedback {
+  background: #ffffff;
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: #0078d7;
+  box-shadow: 0 0 5px rgba(0,120,215,0.3);
+}
+
+/* Footer */
+footer {
+  background-color: #0078d7;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .searchBox input {
+    width: 90px;
+  }
+
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 60px 25px;
+  }
+
+  .about-wrapper,
+  .feedback-form {
+    padding: 0 10px;
+  }
+}
+
+</style>
 </head>
+
 <body>
-  <!-- Navbar -->
-  <header>
-    <h1>TourEase</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Discover the World with Comfort</h2>
-      <p>Experience hassle-free travel and smooth transportation — your journey begins here.</p>
-      <a href="#services" class="btn">Explore Services</a>
-    </div>
-  </section>
+<!-- Navbar -->
+<header>
+  <h1>TourEase</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <p style="max-width:800px; margin:auto; text-align:center; color:#555;">
-      TourEase is a modern travel and transportation company offering world-class tour packages,
-      adventure trips, and reliable transport solutions. We ensure a safe, comfortable, and memorable journey for all our travelers.
+      <li>
+        <div class="searchBox">
+          <input type="search" placeholder="Search..." />
+          <span class="searchLogo"><i class="ri-search-line"></i></span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Discover the World with Comfort</h2>
+    <p>Experience hassle-free travel and smooth transportation — your journey begins here.</p>
+    <a href="#services" class="btn">Explore Services</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+
+  <div class="about-wrapper">
+    <p>
+      TourEase is engineered to streamline end-to-end travel experiences with a core commitment to safety,
+      comfort, and operational excellence. Our portfolio spans curated holiday packages, corporate travel
+      logistics, adventure tours, and high-reliability transportation solutions.
     </p>
-  </section>
+    <p>
+      Our teams leverage modern planning frameworks, real-time support systems, and verified travel partners
+      to ensure every journey is consistent, seamless, and value-aligned. Whether you're exploring new
+      landscapes, commuting across cities, or embarking on an adventure, our ecosystem is designed to reduce
+      friction and elevate overall travel efficiency.
+    </p>
+    <p>
+      With a continually expanding footprint and customer-first strategies, TourEase prioritizes sustainable
+      tourism practices, operational transparency, and superior traveler satisfaction.
+    </p>
+  </div>
+</section>
 
-  <!-- Services Section -->
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg" alt="Tour Packages">
-        <div class="card-content">
-          <h3>Holiday Packages</h3>
-          <p>Explore exotic destinations with our affordable and exciting travel packages tailored for you.</p>
-        </div>
-      </div>
+<!-- Services -->
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
 
-      <div class="card">
-        <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg" alt="Transport">
-        <div class="card-content">
-          <h3>Transportation</h3>
-          <p>Comfortable vehicles for city tours, airport pickups, and intercity travel with professional drivers.</p>
-        </div>
-      </div>
+  <div class="card-container">
 
-      <div class="card">
-        <img src="https://images.pexels.com/photos/287240/pexels-photo-287240.jpeg" alt="Adventure Trips">
-        <div class="card-content">
-          <h3>Adventure Trips</h3>
-          <p>Thrilling adventures, trekking, and camping experiences for nature lovers and explorers.</p>
-        </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg" alt="Tour Packages">
+      <div class="card-content">
+        <h3>Holiday Packages</h3>
+        <p>Explore exotic destinations with our affordable and exciting travel packages tailored for you.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p>Email: info@tourease.com</p>
-    <p>Phone: +91 88518 58353</p>
-    <p>Location: New Delhi, India</p>
-  </section>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/21014/pexels-photo.jpg" alt="Transport">
+      <div class="card-content">
+        <h3>Transportation</h3>
+        <p>Comfortable vehicles for city tours, airport pickups, and intercity travel with professional drivers.</p>
+      </div>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 TourEase. All Rights Reserved.</p>
-  </footer>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/287240/pexels-photo-287240.jpeg" alt="Adventure Trips">
+      <div class="card-content">
+        <h3>Adventure Trips</h3>
+        <p>Thrilling adventures, trekking, and camping experiences for nature lovers and explorers.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <p>Email: info@tourease.com</p>
+  <p>Phone: +91 70427 93168</p>
+  <p>Location: New Delhi, India</p>
+</section>
+
+<!-- Feedback -->
+<section id="feedback" class="feedback">
+  <h2 class="section-title">Feedback</h2>
+  <form class="feedback-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Share your experience..." rows="5" required></textarea>
+    <button type="submit" class="btn">Submit Feedback</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 TourEase. All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>
